@@ -1,0 +1,17 @@
+{
+  "id": 19,
+  "title": "好玩",
+  "description": "qwe",
+  "created_at": "2025-04-23T16:49:52.753135",
+  "attractions": [
+    {
+      "id": 2,
+      "name": "八达岭长城",
+      "description": "万里长城中保存最好的一段，是明长城的精华部分",
+      "location": "北京市延庆区八达岭长城",
+      "coordinates": "116.024067,40.356188",
+      "category": "历史古迹",
+      "image_path": "/images/badaling.jpg"
+    }
+  ]
+}

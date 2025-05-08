@@ -1,0 +1,9 @@
+这是一个占位符文件，请在此目录中放置以下历史地图图片文件：
+
+1. yuan_dadu.jpg - 元大都城垣图
+2. ming_beijing.jpg - 明北京城图
+3. qing_beijing.jpg - 清北京城全图
+4. minguo_beiping.jpg - 民国北平城市图
+5. modern_beijing.jpg - 现代北京城市规划图
+
+这些图片将用于历史地图页面的显示。 

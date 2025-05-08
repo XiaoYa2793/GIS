@@ -1,0 +1,132 @@
+/* 历史地图兴趣点的波纹动画效果 */
+.map-point {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  z-index: 1;
+}
+
+/* 内部图标容器 */
+.point-icon-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* 波纹效果 */
+.map-point::before,
+.map-point::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(66, 185, 131, 0.4);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+/* 第一个波纹 */
+.map-point::before {
+  animation: ripple 2s infinite;
+}
+
+/* 第二个波纹 (延迟启动) */
+.map-point::after {
+  animation: ripple 2s infinite 0.5s;
+}
+
+/* 不同类型兴趣点的颜色 */
+.map-point.palace::before,
+.map-point.palace::after {
+  background: rgba(220, 20, 60, 0.4); /* 宫殿 - 红色 */
+}
+
+.map-point.wall::before,
+.map-point.wall::after {
+  background: rgba(128, 128, 128, 0.4); /* 城墙 - 灰色 */
+}
+
+.map-point.temple::before,
+.map-point.temple::after {
+  background: rgba(255, 215, 0, 0.4); /* 祭祀场所 - 金色 */
+}
+
+.map-point.garden::before,
+.map-point.garden::after {
+  background: rgba(60, 179, 113, 0.4); /* 园林 - 绿色 */
+}
+
+.map-point.education::before,
+.map-point.education::after {
+  background: rgba(30, 144, 255, 0.4); /* 教育机构 - 蓝色 */
+}
+
+.map-point.culture::before,
+.map-point.culture::after {
+  background: rgba(138, 43, 226, 0.4); /* 文化场所 - 紫色 */
+}
+
+/* 波纹动画关键帧 */
+@keyframes ripple {
+  0% {
+    width: 32px;
+    height: 32px;
+    opacity: 0.4;
+  }
+  100% {
+    width: 70px;
+    height: 70px;
+    opacity: 0;
+  }
+}
+
+/* 信息窗口样式 */
+.custom-info-window {
+  padding: 10px;
+  border-radius: 8px;
+  font-family: 'Microsoft YaHei', sans-serif;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  max-width: 300px;
+}
+
+.info-window-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.info-window-body {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.info-window-body p {
+  margin: 5px 0;
+}
+
+/* 兴趣点选中状态 */
+.map-point.selected::before,
+.map-point.selected::after {
+  background: rgba(255, 165, 0, 0.6);
+  animation: selected-ripple 1.5s infinite;
+}
+
+@keyframes selected-ripple {
+  0% {
+    width: 34px;
+    height: 34px;
+    opacity: 0.6;
+  }
+  100% {
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+  }
+} 

@@ -1,0 +1,99 @@
+<!-- <!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' http://localhost:5000 https://*.amap.com https://*.autonavi.com https://*.amap.com:* https://*.autonavi.com:* https://uri.amap.com https://*.baidu.com https://api.map.baidu.com; img-src 'self' http://localhost:5000 https://via.placeholder.com https://*.amap.com https://*.autonavi.com https://*.alicdn.com https://*.bdstatic.com https://*.baidu.com data: blob:; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.amap.com https://*.autonavi.com https://*.alicdn.com https://api.map.baidu.com https://mapapi.baidu.com https://*.bdimg.com https://*.map.baidu.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://*.alicdn.com https://*.amap.com https://*.baidu.com https://*.bdimg.com; font-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://*.alicdn.com https://*.baidu.com https://*.bdimg.com data:; frame-src 'self' https://uri.amap.com https://*.amap.com https://pano.dpm.org.cn https://*.720yun.com https://*.baidu.com; worker-src 'self' blob:;">
+    <title>北京旅游文化体验系统</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
+    <script type="text/javascript">
+      window._AMapSecurityConfig = {
+        securityJsCode: 'd31826355e4f996d3fc73ca592cb67bb',
+      }
+    </script>
+    
+    <meta name="theme-color" content="#42b983">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>  -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 暂时使用非常宽松的CSP以确保地图加载 -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+    <title>北京旅游文化体验系统</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
+    <script type="text/javascript">
+      window._AMapSecurityConfig = {
+        securityJsCode: 'd31826355e4f996d3fc73ca592cb67bb',
+      }
+    </script>
+    
+    <!-- 百度地图API加载脚本 -->
+    <script>
+      var _baiduMapInit = function() {
+        return new Promise((resolve, reject) => {
+          if (window.BMapGL) return resolve();
+          
+          window._baiduMapCallback = function() {
+            console.log('BMapGL:', window.BMapGL);
+            if (window.BMapGL) {
+              resolve();
+            } else {
+              reject(new Error('BMapGL未定义'));
+            }
+          };
+          
+          var script = document.createElement('script');
+          script.src = `https://api.map.baidu.com/api?v=3.0&ak=lKDN054tffFbo2jiOa1G87Rs9P3YH5QW&callback=_baiduMapCallback`;
+        
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+      };
+
+      _baiduMapInit()
+        .then(() => {
+          console.log("BMapGL 已定义，可以初始化地图了！");
+        })
+        .catch(err => {
+          console.error("加载百度地图API失败:", err);
+        });
+    </script>
+    
+    <!-- 直接加载百度地图API -->
+    <script src="https://api.map.baidu.com/api?v=3.0&ak=lKDN054tffFbo2jiOa1G87Rs9P3YH5QW"></script>
+    
+    <!-- 预加载视频资源 -->
+    <link rel="preload" href="/static/mv展示/beijing1.mp4" as="video" type="video/mp4" crossorigin>
+    <link rel="preload" href="/static/mv展示/beijing2.mp4" as="video" type="video/mp4" crossorigin>
+    <link rel="preload" href="/static/mv展示/beijing3.mp4" as="video" type="video/mp4" crossorigin>
+    <link rel="preload" href="/static/mv展示/beijing4.mp4" as="video" type="video/mp4" crossorigin>
+    <link rel="preload" href="/static/mv展示/beijing5.mp4" as="video" type="video/mp4" crossorigin>
+    
+    <meta name="theme-color" content="#42b983">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

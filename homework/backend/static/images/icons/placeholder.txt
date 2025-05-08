@@ -1,0 +1,14 @@
+这是一个占位符文件，请在此目录中放置以下图标文件：
+
+1. palace.png - 宫殿图标
+2. wall.png - 城墙图标
+3. temple.png - 祭祀场所图标
+4. gate.png - 城门图标
+5. garden.png - 园林图标
+6. scenery.png - 景观图标
+7. education.png - 教育机构图标
+8. culture.png - 文化场所图标
+9. sports.png - 体育场所图标
+10. media.png - 媒体机构图标
+
+这些图标将用于地图上的兴趣点标记。 

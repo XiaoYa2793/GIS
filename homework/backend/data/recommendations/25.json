@@ -1,0 +1,17 @@
+{
+  "id": 25,
+  "title": "123",
+  "description": "123",
+  "created_at": "2025-04-23T20:58:57.450063",
+  "attractions": [
+    {
+      "id": 1,
+      "name": "故宫博物院",
+      "description": "中国明清两代的皇家宫殿，世界上现存规模最大、保存最完整的木质结构古建筑之一",
+      "location": "北京市东城区景山前街4号",
+      "coordinates": "116.397026,39.918058",
+      "category": "历史古迹",
+      "image_path": "/images/gugong.jpg"
+    }
+  ]
+}
